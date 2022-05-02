@@ -31,5 +31,5 @@ tee /etc/sudoers.d/root <<_EOL_ > /dev/null
 Defaults:root !requiretty
 _EOL_
 
-chmod 0640 /etc/sudoers.d/*
+sudo chmod 0640 /etc/sudoers.d/*
 printf "done\n"
