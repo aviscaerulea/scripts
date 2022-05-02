@@ -1,4 +1,4 @@
-#!/bin/bash -u
+#!/bin/bash -eu
 printf "install insecure pub key of vagrant official\n"
 readonly KEY_FILE="/home/vagrant/.ssh/authorized_keys"
 install -o vagrant -g vagrant -m 0700 -d $(dirname $KEY_FILE)
@@ -31,4 +31,5 @@ tee /etc/sudoers.d/root <<_EOL_ > /dev/null
 Defaults:root !requiretty
 _EOL_
 
-sudo chmod 0640 /etc/sudoers.d/*
+chmod 0640 /etc/sudoers.d/*
+printf "done\n"
