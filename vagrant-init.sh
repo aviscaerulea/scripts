@@ -10,9 +10,9 @@ sed -re 's/^(GRUB_TIMEOUT)=.+/\1=0/' -i".bkup" /etc/default/grub
 diff -U0 /etc/default/grub{.bkup,}
 grub2-mkconfig -o /boot/grub2/grub.cfg
 
-printf "permissive SELinux\n"
+printf "disabled SELinux\n"
 setenforce 0
-sed -re 's/^(SELINUX)=.+/\1=permissive/' -i".bkup" /etc/selinux/config
+sed -re 's/^(SELINUX)=.+/\1=disabled/' -i".bkup" /etc/selinux/config
 diff -U0 /etc/selinux/config{.bkup,}
 
 printf "change sshd config\n"
