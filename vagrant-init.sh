@@ -5,7 +5,7 @@ install -o vagrant -g vagrant -m 0700 -d $(dirname $KEY_FILE)
 install -o vagrant -g vagrant -m 0600 /dev/null $KEY_FILE
 curl https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub -o $KEY_FILE
 
-cat <_EOL_ >> /etc/sysctl.conf
+cat <<_EOL_ >> /etc/sysctl.conf
 net.ipv6.conf.all.disable_ipv6 = 1
 net.ipv6.conf.default.disable_ipv6 = 1
 _EOL_
