@@ -8,6 +8,7 @@ curl https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub
 printf "change grub config\n"
 sed -re 's/^(GRUB_TIMEOUT)=.+/\1=0/' -i".bkup" /etc/default/grub
 diff -U0 /etc/default/grub{.bkup,}
+grub2-mkconfig -o /boot/grub2/grub.cfg
 
 printf "permissive SELinux\n"
 setenforce 0
