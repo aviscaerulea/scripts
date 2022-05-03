@@ -1,4 +1,4 @@
-#!/bin/bash -eu
+#!/bin/bash -eux
 printf "install insecure pub key of vagrant official\n"
 readonly KEY_FILE="/home/vagrant/.ssh/authorized_keys"
 install -o vagrant -g vagrant -m 0700 -d $(dirname $KEY_FILE)
