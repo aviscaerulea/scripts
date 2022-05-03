@@ -4,8 +4,10 @@ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/dock
 sudo yum -y install docker-ce
 sudo systemctl enable docker
 sudo systemctl start docker
+sudo groupadd docker
+sudo usermod -aG docker $USER
 
 cat <<_EOL_ >> $HOME/.bashrc
-alias d="sudo docker"
+alias d="docker"
 _EOL_
 source $HOME/.bashrc
