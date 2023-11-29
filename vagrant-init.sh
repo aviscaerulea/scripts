@@ -42,4 +42,4 @@ rm -rf /tmp/* /var/tmp/* /var/cache/dnf/*
 truncate -s 0 /var/log/{lastlog,wtmp,btmp}
 dd if=/dev/zero of=/empty bs=1M
 rm -f /empty
-cat /dev/null > /root/.bash_history && history -c
+cat /dev/null > $HOME/.bash_history && history -c
