@@ -37,6 +37,7 @@ cat <<EOL > /etc/sudoers.d/root
 Defaults:root !requiretty
 EOL
 
+dnf install -y tar
 dnf clean all
 rm -rf /tmp/* /var/tmp/* /var/cache/dnf/*
 truncate -s 0 /var/log/{lastlog,wtmp,btmp}
