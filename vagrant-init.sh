@@ -5,6 +5,7 @@ install -o vagrant -g vagrant -m 0700 -d $(dirname $KEY_FILE)
 install -o vagrant -g vagrant -m 0600 /dev/null $KEY_FILE
 curl https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub -o $KEY_FILE
 
+sed -i '1s/^/GRUB_DEFAULT=0\n/' /etc/default/grub
 sed -re 's/^(GRUB_TIMEOUT)=.+/\1=0/' -i".bkup" /etc/default/grub
 diff -U0 /etc/default/grub{.bkup,}
 grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -34,3 +35,9 @@ install -m 0640 /dev/null /etc/sudoers.d/root
 cat <<EOL > /etc/sudoers.d/root
 Defaults:root !requiretty
 EOL
+
+dnf clean all
+dd if=/dev/zero of=/empty bs=1M
+rm -f /empty
+rm -rf /tmp/* /var/cache/dnf/* /var/log/{wtmp,btmp}
+cat /dev/null > /root/.bash_history && history -c
